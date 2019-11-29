@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 const Login = styled(Button)`
   background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
   border-radius: 3px;
-  font-weight: 500;
+  font-weight: 600;
   border: 0;
   color: white;
   padding: 0.7em 3em;
@@ -88,7 +88,12 @@ export default function Navbar() {
         <AppBarr position="static">
           <Toolbar>
             <div className={classes.title}>
-              <Typographyy variant="h1">Lyrics Finder</Typographyy>
+              <Typographyy
+                variant="h1"
+                style={{ fontFamily: "Playfair Display SC, serif" }}
+              >
+                Lyrics Finder
+              </Typographyy>
             </div>
             <NavLink
               to="#"

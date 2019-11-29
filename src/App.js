@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "./Navbar";
-import Main from "./Main";
+import Navbar from "./components/Navbar";
+import Main from "./components/Main";
 import { StylesProvider } from "@material-ui/styles";
 const axios = require("axios");
 
