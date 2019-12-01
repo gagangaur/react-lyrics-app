@@ -5,7 +5,9 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
+import About from "./About";
+import Main from "./Main";
 
 const Login = styled(Button)`
   background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
@@ -96,14 +98,14 @@ export default function Navbar() {
               </Typographyy>
             </div>
             <NavLink
-              to="#"
+              to="/"
               style={{
                 color: "blue"
               }}
             >
               Home
             </NavLink>
-            <NavLink to="#">About</NavLink>
+            <NavLink to="/about">About</NavLink>
             <NavLink to="#">Search</NavLink>
             <NavLink to="#">Developer</NavLink>
             <Link to="#" style={{ textDecoration: "None" }}>
@@ -113,6 +115,10 @@ export default function Navbar() {
         </AppBarr>
       </div>
       <div></div>
+      <Switch>
+        <Route exact path="/" component={Main} />
+        <Route exact path="/about" component={About} />
+      </Switch>
     </Router>
   );
 }

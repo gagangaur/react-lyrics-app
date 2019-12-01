@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import Main from "./components/Main";
 import { StylesProvider } from "@material-ui/styles";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 const axios = require("axios");
 
 export default function App() {
@@ -21,13 +22,16 @@ export default function App() {
   }
 
   return (
-    <div>
-      <StylesProvider injectFirst>
-        <Navbar />
-        <Main />
-      </StylesProvider>
-      {/* <h1>Hello</h1>
-      <button onClick={getUser}>Click Me</button> */}
-    </div>
+    <Router>
+      <div>
+        <StylesProvider injectFirst>
+          {/* <Navbar /> */}
+          <Switch>
+            <Route path="/" component={Navbar} />
+            <Route render={() => <h2>404 ERROR</h2>} />
+          </Switch>
+        </StylesProvider>
+      </div>
+    </Router>
   );
 }
