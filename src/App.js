@@ -1,5 +1,8 @@
 import React from "react";
 import Navbar from "./components/Navbar";
+import Search from "./components/Search";
+import About from "./components/About";
+import Main from "./components/Main";
 import { StylesProvider } from "@material-ui/styles";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -20,15 +23,18 @@ export default function App() {
       console.error(error);
     }
   }
-  getUser();
+  // getUser();
   return (
     <Router>
       <div>
         <StylesProvider injectFirst>
-          <Switch>
-            <Route path="/" component={Navbar} />
+          <Navbar />
+          {/* <Switch>
+            <Route exact path="/" component={Main} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/search" component={Search} />
             <Route render={() => <h2>404 ERROR</h2>} />
-          </Switch>
+          </Switch> */}
         </StylesProvider>
       </div>
     </Router>

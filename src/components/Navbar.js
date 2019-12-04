@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 import About from "./About";
 import Main from "./Main";
+import Search from "./Search";
 
 const Login = styled(Button)`
   background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
@@ -70,8 +71,7 @@ const AppBarr = styled(AppBar)`
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    width: "100%",
-    marginTop: ".5em"
+    width: "100%"
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -106,7 +106,7 @@ export default function Navbar() {
               Home
             </NavLink>
             <NavLink to="/about">About</NavLink>
-            <NavLink to="#">Search</NavLink>
+            <NavLink to="/search">Search</NavLink>
             <NavLink to="#">Developer</NavLink>
             <Link to="#" style={{ textDecoration: "None" }}>
               <Login style={{ marginLeft: "1.5em" }}>Login</Login>
@@ -118,6 +118,7 @@ export default function Navbar() {
       <Switch>
         <Route exact path="/" component={Main} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/search" component={Search} />
       </Switch>
     </Router>
   );

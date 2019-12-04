@@ -20,7 +20,7 @@ const Div = styled(Container)`
   align-items: "center";
 `;
 
-export default function Tracks() {
+export default function Tracks(props) {
   const classes = useStyles();
   const Trackss = [];
   for (let i = 0; i < 10; i++) {
@@ -44,7 +44,7 @@ export default function Tracks() {
   }
   return (
     <React.Fragment>
-      <Div>
+      <Div ref={props.refProp}>
         <Typography
           variant="h2"
           component="h2"
