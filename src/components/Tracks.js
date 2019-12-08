@@ -20,7 +20,7 @@ const Div = styled(Container)`
   align-items: "center";
 `;
 
-export default function Tracks(props) {
+export default function Tracks() {
   const classes = useStyles();
   const Trackss = [];
   for (let i = 0; i < 10; i++) {
@@ -44,20 +44,7 @@ export default function Tracks(props) {
   }
   return (
     <React.Fragment>
-      <Div ref={props.refProp}>
-        <Typography
-          variant="h2"
-          component="h2"
-          style={{
-            backgroundColor: "#6C63FF",
-            fontFamily: "Playfair Display SC, serif",
-            textAlign: "center",
-            padding: "1em",
-            color: "white"
-          }}
-        >
-          Top Tracks
-        </Typography>
+      <Div>
         <div styles={{ flexGrow: 1 }}>
           <Grid container spacing={3} style={{ marginTop: "1.5em" }}>
             {Trackss}

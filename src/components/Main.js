@@ -1,11 +1,14 @@
-import React, { Fragment, useRef } from "react";
+import React, { Fragment, useRef, useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import SVGRight from "../main-svg.svg";
 import SVGLeft from "../main-svg-left.svg";
 import styled from "styled-components";
 import Button from "@material-ui/core/Button";
 import Tracks from "./Tracks";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import Search from "./Search";
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 
 const SearchButton = styled(Button)`
   background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
@@ -29,15 +32,34 @@ const H1 = styled("h1")`
   padding-top: 1em;
   margin-left: 1em;
 `;
+const Div = styled(Container)`
+  margin-top: 5em;
+  align-content: "center";
+  align-items: "center";
+`;
 
 export default function Main() {
+  // const myRefTrack = useRef(null);
+  // const myRefSearch = useRef(null);
   const myRef = useRef(null);
-
-  const navigateToTracks = () => {
-    myRef.current.scrollIntoView({
-      behavior: "smooth"
-    });
+  const [view, setView] = useState("Top Tracks");
+  const navigateToTracks = e => {
+    setView("Top Tracks");
+    setTimeout(() => {
+      myRef.current.scrollIntoView({
+        behavior: "smooth"
+      });
+    }, 500);
   };
+  const navigateToSearch = e => {
+    setView("Search Lyrics");
+    setTimeout(() => {
+      myRef.current.scrollIntoView({
+        behavior: "smooth"
+      });
+    }, 500);
+  };
+
   return (
     <Router>
       <Fragment>
@@ -56,19 +78,17 @@ export default function Main() {
                     display: "flex-inline"
                   }}
                 >
-                  <Link to="/search" style={{ textDecoration: "None" }}>
-                    <SearchButton
-                      style={{
-                        background: "#4e54c8",
-                        background:
-                          "-webkit-linear-gradient(to bottom, #8f94fb, #4e54c8)",
-                        background:
-                          "linear-gradient(to bottom, #8f94fb, #4e54c8)"
-                      }}
-                    >
-                      Search Lyrics
-                    </SearchButton>
-                  </Link>
+                  <SearchButton
+                    onClick={navigateToSearch}
+                    style={{
+                      background: "#4e54c8",
+                      background:
+                        "-webkit-linear-gradient(to bottom, #8f94fb, #4e54c8)",
+                      background: "linear-gradient(to bottom, #8f94fb, #4e54c8)"
+                    }}
+                  >
+                    Search Lyrics
+                  </SearchButton>
                   <SearchButton onClick={navigateToTracks}>
                     Top Tracks
                   </SearchButton>
@@ -95,7 +115,23 @@ export default function Main() {
             </Grid>
           </Grid>
         </div>
-        <Tracks refProp={myRef} />
+        <Div>
+          <Typography
+            variant="h2"
+            component="h2"
+            ref={myRef}
+            style={{
+              backgroundColor: "#6C63FF",
+              fontFamily: "Playfair Display SC, serif",
+              textAlign: "center",
+              padding: "1em",
+              color: "white"
+            }}
+          >
+            {view}
+          </Typography>
+        </Div>
+        {view === "Top Tracks" ? <Tracks /> : <Search />}
       </Fragment>
     </Router>
   );
