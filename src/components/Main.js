@@ -39,8 +39,6 @@ const Div = styled(Container)`
 `;
 
 export default function Main() {
-  // const myRefTrack = useRef(null);
-  // const myRefSearch = useRef(null);
   const myRef = useRef(null);
   const [view, setView] = useState("Top Tracks");
   const navigateToTracks = e => {

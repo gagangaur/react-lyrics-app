@@ -1,8 +1,6 @@
 import React, { Fragment, useState } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import styled from "styled-components";
 import Container from "@material-ui/core/Container";
-import Track from "./Track";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
