@@ -5,7 +5,7 @@ import SVGLeft from "../main-svg-left.svg";
 import styled from "styled-components";
 import Button from "@material-ui/core/Button";
 import Tracks from "./Tracks";
-import Search from "./Search";
+import Search from "./Search/Search";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
@@ -128,8 +128,8 @@ export default function Main() {
           >
             {view}
           </Typography>
+          {view === "Top Tracks" ? <Tracks /> : <Search />}
         </Div>
-        {view === "Top Tracks" ? <Tracks /> : <Search />}
       </Fragment>
     </Router>
   );
