@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
+import Lyrics from "../components/Lyrics";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
@@ -68,19 +69,19 @@ const AppBarr = styled(AppBar)`
   background-color: #ffffff;
   box-shadow: None;
 `;
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: "1rem",
     flexGrow: 1,
-    width: "100%"
+    width: "100%",
   },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   title: {
     marginLeft: "1em",
-    flexGrow: 1
-  }
+    flexGrow: 1,
+  },
 }));
 
 export default function Navbar() {
@@ -90,6 +91,7 @@ export default function Navbar() {
       <div className={classes.root}>
         <AppBarr position="relative">
           <Toolbar>
+            {/* top left logo text */}
             <div className={classes.title}>
               <Typographyy
                 variant="h1"
@@ -98,10 +100,11 @@ export default function Navbar() {
                 Lyrics Finder
               </Typographyy>
             </div>
+            {/* top right links */}
             <NavLink
               to="/"
               style={{
-                color: "blue"
+                color: "blue",
               }}
             >
               Home
@@ -120,6 +123,7 @@ export default function Navbar() {
         <Route exact path="/" component={Main} />
         <Route exact path="/about" component={About} />
         <Route exact path="/search" component={Search} />
+        {/* <Route exact path="/lyrics/:id" component={Lyrics} /> */}
       </Switch>
     </Router>
   );

@@ -38,7 +38,10 @@ export default function Track(props) {
               <Button size="large" color="secondary">
                 Share
               </Button>{" "}
-              <Link to="/search" style={{ textDecoration: "none" }}>
+              <Link
+                to={`lyrics/${track.track_id}`}
+                style={{ textDecoration: "none" }}
+              >
                 <Button size="large" color="secondary">
                   Show Lyrics
                 </Button>{" "}
